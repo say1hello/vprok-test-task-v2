@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('generate-shorten-link', 'App\Http\Controllers\ShortLinkController@index');
+Route::post('generate-shorten-link', 'App\Http\Controllers\ShortLinkController@store')->name('generate.shorten.link.post');
+
+Route::get('{code}', 'App\Http\Controllers\ShortLinkController@shortenLink')->name('shorten.link');
